@@ -11,11 +11,17 @@ let package = Package(
             name: "AudiomackLibrary",
             targets: ["AudiomackLibrary"]),
     ],
+    dependencies: [
+            .package(
+                url: "https://github.com/OAuthSwift/OAuthSwift.git",
+                .upToNextMajor(from: "2.2.0"))
+        ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "AudiomackLibrary"),
+            name: "AudiomackLibrary",
+            dependencies: ["OAuthSwift"]),
         .testTarget(
             name: "AudiomackLibraryTests",
             dependencies: ["AudiomackLibrary"]),
